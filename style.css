@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@300&family=Six+Caps&family=Wire+One&display=swap');
+
 html 
 {
     background-color: #CA0005;
@@ -14,6 +15,7 @@ html
     justify-content: space-between;
     align-items: centre;
     z-index: 100;
+    
 }
 
 *{
@@ -34,13 +36,13 @@ header a img {
 
 .navbar a{
     position: relative;
-    font-size: 24px;
+    font-size: 32px;
     color: black;
     font-weight: 400;
     text-decoration: none;
     margin-left: 40px;
-    font-family: 'Lato';
-    top: 25%;
+    font-family: 'Karantina';
+    top: 21%;
 }
 
 .navbar a::before{
@@ -56,4 +58,17 @@ header a img {
 
 .navbar a:hover::before{
     width:100%
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 50px;
+    background: white; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
 }
