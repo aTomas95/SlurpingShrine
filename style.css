@@ -14,7 +14,6 @@ html
     display: flex;
     justify-content: space-between;
     align-items: centre;
-    z-index: 100;
     
 }
 
@@ -64,13 +63,13 @@ header a img {
         display: block; /* Show hamburger icon on small screens */
         position: fixed;
         right: 40px; /* Adjust as needed */
-        top: 29px; /* Adjust as needed */
+        top: 28px; /* Adjust as needed */
     }
 }
 
 .navbar a{
     position: relative;
-    font-size: 32px;
+    font-size: 33px;
     color: black;
     font-weight: 400;
     text-decoration: none;
@@ -102,6 +101,9 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    font-family: 'Karantina';
+    font-size: 25px;
+    color: black;
 }
 
 main {
@@ -110,7 +112,7 @@ main {
 
 .phrase {
     text-align: center;
-    color: white;
+    font-size: 100%;
     padding-top: 130px;
 }
 
@@ -155,23 +157,13 @@ main {
   /* Next & previous buttons */
   .prev, .next {
     cursor: pointer;
-    position: absolute;
-    top: 50%;
     width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: white;
+    padding: 35px;
+    color: black;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 15px;
     transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
     user-select: none;
-  }
-  
-  /* Position the "next button" to the right */
-  .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
   }
   
   /* Fading animation */
