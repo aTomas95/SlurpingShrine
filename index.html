@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyCompanyWebsite</title>
-
     <link rel="stylesheet" href="../style.css">
 
 </head>
 <body>
     <header class="header">
         <a href="../index.html" class="logo"><img src="../Assets/Logo.PNG" alt="Logo"></a>
+        <button class="hamburger" onclick="toggleMenu()">&#9776</button>
         <nav class="navbar">
             <a href="./public/Bookings.html">Bookings</a>
             <a href="./public/Menu.html">Menu</a>
@@ -19,10 +19,54 @@
             <a href="./public/Contact_Us.html">Contact Us</a>
         </nav>
     </header>
-    <div href="../index.html" class="shrine"><img src="..Assets/Shrine.PNG" alt="Shrine"></div>
+
+    <main>
+        <!--<section class="hero">
+            <img src="Assets/Shrine.PNG" alt="Main image">
+        </section> -->
+        <section class="phrase">
+            <p>Sip, Slurp, Shrine: Experience Ramen Enlightenment at Slurping Shrine.</p>
+        </section>
+
+        <div class="info-box">
+            <section class="about-us">
+                <h1>About Us</h1>
+                <p>At Slurping Shrine, we pledge to honor the rich tradition and culture of ramen by serving authentic, flavorful bowls that transport you to culinary nirvana. With each carefully crafted recipe, we promise an unforgettable journey where every slurp embodies our dedication to excellence and reverence for the sacred art of ramen-making. Welcome to our shrine; prepare to elevate your senses and nourish your soul.</p>
+            </section>
+
+            <section class="gallery">
+                <h1>Gallery</h1>
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+                        <img src="Assets/Abura Soba.png" style="width:100%">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="Assets/Miso Ramen.png" style="width:100%">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="Assets/Shio Ramen.png" style="width: 100%;">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="Assets/Tantan Ramen.png" style="width: 100%;">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="Assets/Tonkotsu-Gyokai Ramen.png" style="width: 100%;">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="Assets/Tori Paitan Ramen.png" style="width: 100%;">
+                    </div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </section>
+        </div>
+    </main>
+    
 
     <footer class="footer">
         <p>Footer</p>
     </footer>
+
+    <script src="homepage.js"></script>
 </body>
 </html>
