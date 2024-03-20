@@ -5,7 +5,7 @@ html
     background-color: #CA0005;
 }
 .header{
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
@@ -34,21 +34,21 @@ header a img {
 }
 
 .hamburger {
-    display: none; /* Hidden by default */
-    font-size: 30px; /* Icon size */
+    display: none;
+    font-size: 30px;
     background: none;
     border: none;
-    color: black; /* Hamburger color */
+    color: black;
     cursor: pointer;
 }
 
-@media (max-width: 600px) { /* Adjust to your breakpoint */
+@media (max-width: 600px) {
     
     .navbar {
-        display: none; /* Hide navbar on small screens */
+        display: none;
         flex-direction: column;
         align-items: flex-start;
-        width: 100%; /* Full width */
+        width: 100%;
     }
 
     .navbar a {
@@ -60,10 +60,10 @@ header a img {
     }
 
     .hamburger {
-        display: block; /* Show hamburger icon on small screens */
+        display: block;
         position: fixed;
-        right: 40px; /* Adjust as needed */
-        top: 28px; /* Adjust as needed */
+        right: 40px;
+        top: 28px;
     }
 }
 
@@ -113,7 +113,7 @@ main {
 .phrase {
     text-align: center;
     font-size: 100%;
-    padding-top: 130px;
+    padding-top: 30px;
 }
 
 .info-box {
@@ -138,16 +138,20 @@ main {
     border-radius: 30px;
 }
 
-/* Ensure the images in the gallery do not exceed the container width */
+.arrows {
+    display: flex;
+    align-items: center;
+}
+
 .image-gallery img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block; /* This will ensure that each image takes up the full width of its container */
 }
 
 .slideshow-container {
     position: relative;
-    max-width: 1000px; /* You can set the max-width as needed */
+    max-width: 1000px;
     margin: auto;
   }
   
@@ -166,6 +170,7 @@ main {
     font-size: 15px;
     transition: 0.6s ease;
     user-select: none;
+    position:relative;
   }
   
   /* Fading animation */
@@ -179,7 +184,6 @@ main {
     to {opacity: 1}
   }
   
-  /* On smaller screens, decrease text size */
   @media only screen and (max-width: 300px) {
     .prev, .next,.text {font-size: 11px}
   }
@@ -188,4 +192,17 @@ main {
     background: white;
     text-align: center;
     padding: 10px 50px;
+}
+
+.location {
+    padding: 10%;
+    position: relative;
+}
+
+.location iframe {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    position: absolute;
 }
