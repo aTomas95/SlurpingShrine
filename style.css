@@ -9,10 +9,12 @@ html
     position: sticky;
     width: 100%;
     padding: 20px;
+    top: 0;
     background: white; 
     display: flex;
     justify-content: space-between;
-    align-items: centre;   
+    align-items: centre;
+    z-index: 100;
 }
 
 *{
@@ -31,6 +33,17 @@ header a img {
     height: auto;
 }
 
+.navbar a {
+    position: relative;
+    font-size: 33px;
+    color: black;
+    font-weight: 400;
+    text-decoration: none;
+    margin-left: 40px;
+    font-family: 'Karantina';
+    top: 21%;
+}
+
 .hamburger {
     display: none;
     position: fixed;
@@ -42,58 +55,35 @@ header a img {
 }
 
 @media (max-width: 600px) {  
-    .navbar {
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-    }
-
-    .navbar a {
-        display: block;
-        text-align: left;
-        padding: 10px;
-        color: black;
-        text-decoration: none;
-    }
-
     .hamburger {
         display: block;
         position: absolute;
         right: 20px;
         top: 20px;
+        z-index: 15;
     }
-}
 
-.navbar a{
-    position: relative;
-    font-size: 33px;
-    color: black;
-    font-weight: 400;
-    text-decoration: none;
-    margin-left: 40px;
-    font-family: 'Karantina';
-    top: 21%;
-}
+    .navbar {
+        display: none; /* Initially hidden */
+        position: absolute; /* Positioned absolutely within .header */
+        top: 100px; /* Set to the height of your header, including padding */
+        right: 20px; /* Align with the right side of the hamburger */
+        background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+        min-width: 150px; /* Auto width, or you can set a specific width */
+        z-index: 12; /* Other styling... */
+    }
 
-.navbar a::before{
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: purple;
-    transition: .1s;
-}
+    .navbar a {
+        display: block;
+        text-align: right;
+        padding: 10px;
+        color: black;
+    }
 
-.navbar a:hover::before{
-    width:100%
-}
-
-html, body {
-    height: 100%;
-    margin: 0;
+    .navbar.show {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 body {

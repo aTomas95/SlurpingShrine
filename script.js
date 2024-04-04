@@ -22,5 +22,5 @@ function showSlides(n) {
 
 function toggleMenu() {
   const navbar = document.querySelector('.navbar');
-  navbar.classList.toggle('hidden'); // Use this instead for class-based hiding
+  navbar.classList.toggle('show'); // This will show or hide the navbar
 }
