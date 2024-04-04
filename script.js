@@ -21,10 +21,6 @@ function showSlides(n) {
 }
 
 function toggleMenu() {
-    var navbar = document.querySelector('.navbar');
-    if (navbar.style.display === 'block') {
-        navbar.style.display = 'none';
-    } else {
-        navbar.style.display = 'block';
-    }
+  const navbar = document.querySelector('.navbar');
+  navbar.classList.toggle('hidden'); // Use this instead for class-based hiding
 }
