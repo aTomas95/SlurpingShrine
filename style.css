@@ -183,6 +183,7 @@ body {
     }
 }
 
+/* Footer CSS. */
 .footer {
     position: relative;
     background-color: white;
@@ -212,6 +213,46 @@ body {
     .footer-content {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+/* Bookings Page CSS. */
+.bookings-delivery-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    flex-wrap: wrap; /* Allows items to wrap as needed */
+}
+
+.booking-table,
+.order-delivery {
+    flex: 1; /* Both sections take up equal space */
+    margin: 10px; /* Add some space between the sections */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.separator {
+    background-color: white; /* Or any color that suits your design */
+    width: 3px; /* Thickness of the separator */
+    margin: 0 20px; /* Space on the sides of the separator */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    .bookings-delivery-container {
+        flex-direction: column;
+    }
+
+    .separator {
+        display: block; /* Show separator on small screens */
+        height: 3px; /* Thickness of the horizontal separator */
+        width: 90%; /* Width of the horizontal separator */
+        background-color: white; /* Or any color that suits your design */
+        margin: 20px auto; /* Vertically space above and below the separator, centered horizontally */
     }
 }
 
