@@ -64,13 +64,13 @@ header a img {
     }
 
     .navbar {
-        display: none; /* Initially hidden */
-        position: absolute; /* Positioned absolutely within .header */
-        top: 100px; /* Set to the height of your header, including padding */
-        right: 20px; /* Align with the right side of the hamburger */
-        background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-        min-width: 150px; /* Auto width, or you can set a specific width */
-        z-index: 12; /* Other styling... */
+        display: none;
+        position: absolute;
+        top: 100px;
+        right: 20px;
+        background-color: rgba(255, 255, 255, 0.9);
+        min-width: 150px;
+        z-index: 12;
     }
 
     .navbar a {
@@ -184,9 +184,11 @@ body {
 }
 
 .footer {
+    position: relative;
     background-color: white;
     padding: 10px;
     text-align: center;
+    bottom: 0;
 }
 
 .footer-content {
@@ -206,16 +208,21 @@ body {
     text-decoration: none;
 }
 
-/* Responsive adjustments */
 @media (max-width: 600px) {
     .footer-content {
         flex-direction: column;
         text-align: center;
     }
+}
 
-    .social-icons, .opening-hours, .contact-link {
-        margin-bottom: 10px;
-    }
+/* About Us CSS. */
+.torii {
+    padding: 15px;
+}
+
+.ramen {
+    padding: 15px;
+    text-align: right;
 }
 
 /* Contact Us CSS. */
@@ -225,22 +232,23 @@ body {
 }
 
 .location {
-    padding: 10%;
     position: relative;
+    height: 200px;
 }
 
 .location iframe {
     height: 100%;
     width: 100%;
     left: 0;
-    bottom: 0;
+    top: 0;
     position: absolute;
 }
 
-.contact-us .social-icons {
+.contact-us .footer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    bottom: 0;
 }
 
 .contact-us .opening-hours, .contact-us .contact-link {
