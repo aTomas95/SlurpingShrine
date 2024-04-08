@@ -1,0 +1,49 @@
+[
+    {
+      "id": "abura-soba",
+      "name": "Abura Soba",
+      "image": "./Assets/Abura Soba.png",
+      "description": "Abura Soba, also known as 'oil noodles', is a soupless ramen dish featuring a flavorful sauce, chopped greens, boiled eggs and pork.",
+      "price": "15.95"
+
+    },
+    {
+      "id": "miso-ramen",
+      "name": "Miso Ramen",
+      "image": "./Assets/Miso Ramen.png",
+      "description": "Miso Ramen is a popular variant that incorporates miso paste into the broth, offering a rich umami flavor complemented by corn, bean sprouts, and slices of chashu pork.",
+      "price": "9.99"
+
+    },
+    {
+      "id": "shio-ramen",
+      "name": "Shio Ramen",
+      "image": "./Assets/Shio Ramen.png",
+      "description": "Shio Ramen, meaning 'salt' ramen, features a lighter, clear broth seasoned primarily with salt, and is topped with green onions, bamboo shoots, and delicious pork chop.",
+      "price": "12.95"
+
+    },
+    {
+      "id": "tantan-ramen",
+      "name": "Tantan Ramen",
+      "image": "./Assets/Tantan Ramen.png",
+      "description": "Tantan Ramen characterized by its spicy sesame broth and served with deep-fried pork, soft boiled egg, bok choy, and a drizzle of chili oil.",
+      "price": "14.99"
+
+    },
+    {
+      "id": "tonkotsu-gyokai-ramen",
+      "name": "Tonkotsu Gyokai Ramen",
+      "image": "./Assets/Tonkotsu-Gyokai Ramen.png",
+      "description": "Tonkotsu Gyokai Ramen blends pork bone broth with fish-based stock, creating a rich and complex flavor profile, accompanied by green onions, bamboo shot and soft-boiled eggs.",
+      "price": "14.95"
+
+    },
+    {
+      "id": "tori-paitan-ramen",
+      "name": "Tori Paitan Ramen",
+      "image": "./Assets/Tori Paitan Ramen.png",
+      "description": "Features a rich paitan broth mixed with cream, and with broccoli, fried onions and bacon in the broth.",
+      "price": "10.99"
+    }
+  ]

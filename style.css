@@ -256,6 +256,26 @@ body {
     }
 }
 
+.menu {
+    text-align: center;
+}
+
+.menu-item {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.menu-item h3 {
+    margin: 0 0 10px 0;
+}
+
+.menu-item img {
+    width: 100%; /* Adjust as necessary */
+    height: auto;
+    margin-top: 10px;
+}
+
 /* About Us CSS. */
 .torii {
     padding: 15px;
