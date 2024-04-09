@@ -315,13 +315,48 @@ body {
 }
 
 /* About Us CSS. */
-.torii {
-    padding: 15px;
+.content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
 }
 
-.ramen {
-    padding: 15px;
-    text-align: right;
+.content img {
+    width: 50%;
+    max-width: 255px;
+    height: auto;
+    border-radius: 50px;
+}
+
+/* Text alignment for Torii section */
+.torii div {
+    text-align: left; /* Aligns text to the right */
+    flex: 1;
+}
+
+/* Text alignment for Ramen section (if needed for consistency) */
+.ramen div {
+    text-align: right; /* Aligns text to the left, if you want to explicitly set this */
+    flex: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .content img {
+        width: 80%;
+        max-width: none;
+        margin: 0 auto 20px;
+    }
+
+    .torii div, .ramen div {
+        text-align: center; /* Center text on smaller screens */
+    }
 }
 
 /* Contact Us CSS. */
