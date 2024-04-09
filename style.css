@@ -220,20 +220,89 @@ body {
 .bookings-delivery-container {
     display: flex;
     justify-content: space-around;
+    text-align: center;
     margin: 20px 0;
     flex-wrap: wrap;
 }
 
-.booking-table,
-.order-delivery {
-    flex: 1;
-    margin: 10px;
+.booking-table input,
+.booking-table textarea {
+    max-height: 50px; /* Example height, adjust as needed */
+}
+
+.booking-table form {
+    max-height: 600px; /* Example max-height, adjust as needed */
+    overflow: auto; /* Allows scrolling inside the form if the content is too long */
+}
+
+.booking-table form,
+.order-delivery form {
+    max-width: 350px;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+input[type="number"],
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="datetime-local"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #CA0005;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: black;
+    color:#CA0005;
+}
+
+.delivery-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .delivery-info {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
+  }
+  
+  .delivery-selection {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .order-total {
+    grid-column: span 2;
+  }
+  
+  input, select, button {
+    margin: 5px 0;
+  }
+  
+  #orderSummary {
+    list-style: none;
+    padding: 0;
+  }
 
 .separator {
     background-color: white;
@@ -241,8 +310,9 @@ body {
     margin: 0 20px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .bookings-delivery-container {
+        justify-content: center;
         flex-direction: column;
     }
 
@@ -253,6 +323,13 @@ body {
         background-color: white;
         margin: 20px auto;
     }
+}
+
+@media (min-width: 1024px) {
+    .booking-table form,
+    .order-delivery form {
+    width: 90%;
+}
 }
 
 /* Menu CSS */
@@ -290,7 +367,7 @@ body {
 
 .menu-item img {
     width: 100%;
-    height: 300px;
+    height: 320px;
     margin-bottom: 8px;
     border-radius: 20px;
 }
@@ -318,31 +395,28 @@ body {
 .content {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
     padding: 30px;
     margin-bottom: 30px;
 }
 
 .content img {
     width: 50%;
-    max-width: 255px;
+    max-width: 275px;
     height: auto;
     border-radius: 50px;
 }
 
-/* Text alignment for Torii section */
 .torii div {
-    text-align: left; /* Aligns text to the right */
+    text-align: left;
     flex: 1;
 }
 
-/* Text alignment for Ramen section (if needed for consistency) */
 .ramen div {
-    text-align: right; /* Aligns text to the left, if you want to explicitly set this */
+    text-align: right;
     flex: 1;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .content {
         flex-direction: column;
@@ -355,7 +429,7 @@ body {
     }
 
     .torii div, .ramen div {
-        text-align: center; /* Center text on smaller screens */
+        text-align: center;
     }
 }
 

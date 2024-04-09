@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyCompanyWebsite</title>
+    <title>SlurpingShrine</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
@@ -24,14 +25,48 @@
     <main class="bookings-delivery-container">
         <section class="booking-table">
             <h2>Book a Table</h2>
-            <!-- Form for booking a table -->
+            <form id="bookingForm">
+                <input type="number" id="guests" name="guests" placeholder="Number Of Guests" required min="1">
+                <input type="text" id="bookingName" name="name" placeholder="Your Name" required>
+                <input type="email" id="bookingEmail" name="email" placeholder="Your Email" required>
+                <input type="tel" id="bookingPhone" name="phone" placeholder="Phone Number" required 
+                pattern="(\+[\d\s\-().]{7,}|0\d{10})" title="Please enter a valid phone number (international or local UK)">
+                <input type="datetime-local" id="bookingDateTime" name="bookingDateTime" required>
+                <textarea id="specialRequests" name="specialRequests" placeholder="Additional Information"></textarea>
+                <button type="submit">Book Table</button>
+            </form>
         </section>
-
-        <div class="separator"></div> <!-- This will be the line in the middle -->
-
+        
+        <div class="separator"></div>
+        
         <section class="order-delivery">
             <h2>Order a Delivery</h2>
-            <!-- Form for ordering delivery -->
+            <form id="deliveryForm" class="delivery-form">
+                <div class="delivery-info">
+                    <input type="text" id="deliveryName" placeholder="Your Name" required>
+                    <input type="email" id="deliveryEmail" placeholder="Your Email" required>
+                    <input type="tel" id="deliveryPhone" placeholder="Phone Number" required 
+                    pattern="(\+[\d\s\-().]{7,}|0\d{10})" title="Please enter a valid phone number (international or local UK)">
+                    <input type="text" id="address" placeholder="Delivery Address" required>
+                    <input type="text" id="postcode" placeholder="Postcode" required>
+                </div>
+                <div class="delivery-selection">
+                    <select id="ramenDropdown">
+                      <!-- Options will be added dynamically -->
+                    </select>
+                    <input type="number" id="quantity" placeholder="Quantity" min="1" value="1">
+                    <button type="button" id="addItem">Add to Order</button>
+                    <ul id="orderSummary">
+                      <!-- Summary of selected items -->
+                    </ul>
+                </div>
+                <div class="order-total">
+                    <p>Subtotal: £<span id="subtotal">0.00</span></p>
+                    <p>Tip (%): <input type="number" id="tipPercentage" placeholder="10" min="0" value="0" onchange="calculateTotal()">%</p>
+                    <p>Total: £<span id="total">0.00</span></p>
+                </div>
+                <button type="submit">Submit Order</button>
+            </form>
         </section>
     </main>
 
