@@ -32,8 +32,10 @@
                 <input type="tel" id="bookingPhone" name="phone" placeholder="Phone Number" required 
                 pattern="(\+[\d\s\-().]{7,}|0\d{10})" title="Please enter a valid phone number (international or local UK)">
                 <input type="datetime-local" id="bookingDateTime" name="bookingDateTime" required>
-                <textarea id="specialRequests" name="specialRequests" placeholder="Additional Information"></textarea>
-                <button type="submit">Book Table</button>
+                <div class="additional-info-container">
+                    <textarea id="requests" name="requests" placeholder="Additional Information"></textarea>
+                    <button type="submit" id="bookButton">Book Table</button>
+                </div>
             </form>
         </section>
         
@@ -42,6 +44,18 @@
         <section class="order-delivery">
             <h2>Order a Delivery</h2>
             <form id="deliveryForm" class="delivery-form">
+                <div class="delivery-selection">
+                    <div class="select-wrapper">
+                        <select id="ramenDropdown">
+                        <!-- Options will be added dynamically -->
+                        </select>
+                    </div>
+                    <input type="number" id="quantity" placeholder="Quantity" min="1">
+                    <button type="button" id="addItem">Add to Order</button>
+                    <ul id="orderSummary">
+                      <!-- Summary of selected items -->
+                    </ul>
+                </div>
                 <div class="delivery-info">
                     <input type="text" id="deliveryName" placeholder="Your Name" required>
                     <input type="email" id="deliveryEmail" placeholder="Your Email" required>
@@ -50,19 +64,10 @@
                     <input type="text" id="address" placeholder="Delivery Address" required>
                     <input type="text" id="postcode" placeholder="Postcode" required>
                 </div>
-                <div class="delivery-selection">
-                    <select id="ramenDropdown">
-                      <!-- Options will be added dynamically -->
-                    </select>
-                    <input type="number" id="quantity" placeholder="Quantity" min="1" value="1">
-                    <button type="button" id="addItem">Add to Order</button>
-                    <ul id="orderSummary">
-                      <!-- Summary of selected items -->
-                    </ul>
-                </div>
+                
                 <div class="order-total">
                     <p>Subtotal: £<span id="subtotal">0.00</span></p>
-                    <p>Tip (%): <input type="number" id="tipPercentage" placeholder="10" min="0" value="0" onchange="calculateTotal()">%</p>
+                    <input type="number" id="tip" placeholder="Tip (%)" min="0" value="0" onchange="updateOrderSummary()">%
                     <p>Total: £<span id="total">0.00</span></p>
                 </div>
                 <button type="submit">Submit Order</button>

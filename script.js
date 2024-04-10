@@ -21,6 +21,7 @@ function initializeSlideshow() {
     slides[slideIndex - 1].style.display = "block";
   }
 
+  // Attach events to next/prev buttons if they exist
   const nextButton = document.querySelector('.next');
   const prevButton = document.querySelector('.prev');
   if (nextButton && prevButton) {
@@ -29,7 +30,9 @@ function initializeSlideshow() {
   }
 }
 
+// Function to initialize the menu items from JSON
 function initializeMenu() {
+  // Assuming menu-items.json is in the correct directory
   fetch('../menu-items.json')
     .then(response => response.json())
     .then(menuItems => {
@@ -50,63 +53,65 @@ function initializeMenu() {
 
 // Functions to handle form submissions for both booking and delivery forms
 function handleBookingFormSubmission(event) {
-  event.preventDefault();
-  alert('Your table booking request has been submitted!');
+    event.preventDefault();
+    alert('Your table booking request has been submitted!');
 }
 
 function handleDeliveryFormSubmission(event) {
-  event.preventDefault();
-  alert('Your delivery order has been submitted!');
+    event.preventDefault();
+    alert('Your delivery order has been submitted!');
 }
 
+// Function to setup the delivery form and load menu items into the dropdown
 function setupDeliveryForm(menuItems) {
-  const ramenSelect = document.getElementById('ramenSelect');
-  ramenSelect.innerHTML = '<option value="">Select a Ramen</option>'; // Default option
+  const ramenDropdown = document.getElementById('ramenDropdown'); // Adjust this ID based on your HTML
+  ramenDropdown.innerHTML = '<option value="">Select a Ramen</option>';
 
   menuItems.forEach(item => {
       const option = document.createElement('option');
       option.value = item.id;
       option.textContent = `${item.name} - £${item.price}`;
-      option.dataset.price = item.price; // Store price in data attribute for access later
-      ramenSelect.appendChild(option);
+      ramenDropdown.appendChild(option);
   });
 
-  document.getElementById('addItem').addEventListener('click', addItemToOrder); // Assuming you have an Add button with id="addItem"
+  // Event listener for the Add to Order button
+  document.getElementById('addItem').addEventListener('click', addItemToOrder);
 }
 
-// This function will handle adding selected ramen and its quantity to the order summary
+// This function handles adding selected ramen and its quantity to the order summary
 function addItemToOrder() {
-  const ramenSelect = document.getElementById('ramenSelect');
-  const quantityInput = document.getElementById('ramenQuantity');
-  const selectedOption = ramenSelect.options[ramenSelect.selectedIndex];
-  const orderSummary = document.getElementById('orderSummary'); // Assuming an <ul> or <div> for order summary
+  const ramenDropdown = document.getElementById('ramenDropdown');
+  const quantityInput = document.getElementById('quantity');
+  const selectedOption = ramenDropdown.options[ramenDropdown.selectedIndex];
+  const orderSummary = document.getElementById('orderSummary');
 
   if (selectedOption.value && quantityInput.value > 0) {
-      // Create a list item or div for the selected ramen and quantity
       const orderItem = document.createElement('li');
       orderItem.textContent = `${selectedOption.text} x ${quantityInput.value}`;
       orderSummary.appendChild(orderItem);
-
+      
       updateOrderSummary();
   }
 }
 
-// Function to update the order summary based on the selection and quantity
+// Function to update the order summary based on selected items and quantity
 function updateOrderSummary() {
   let subtotal = 0;
+  // Assuming each list item in the orderSummary follows the format: "Item Name - £Price x Quantity"
   document.querySelectorAll('#orderSummary li').forEach(item => {
-      const [name, quantity] = item.textContent.split(' x ');
-      const price = parseFloat(name.split(' - £')[1]);
-      subtotal += price * parseInt(quantity, 10);
+      const parts = item.textContent.split(' x ');
+      const price = parseFloat(parts[0].split(' - £')[1]);
+      const quantity = parseInt(parts[1]);
+      subtotal += price * quantity;
   });
 
-  const deliveryCharge = 5; // Set your delivery charge here
-  let tipPercentage = parseInt(document.getElementById('tipInput').value, 10) || 0; // Assuming an input for tips with id="tipInput"
-  tipPercentage = tipPercentage / 100;
+  const tipInput = document.getElementById('tip'); // Get the tip input element
+  const tipPercentage = parseFloat(tipInput.value) / 100 || 0; // Parse the tip percentage
+  const tipAmount = subtotal * tipPercentage; // Calculate the tip amount
+  const total = subtotal + tipAmount; // Calculate the total
 
-  const total = subtotal + (subtotal * tipPercentage) + deliveryCharge;
-  document.getElementById('subtotal').textContent = `£${subtotal.toFixed(2)}`;
-  document.getElementById('total').textContent = `£${total.toFixed(2)}`;
+  document.getElementById('subtotal').textContent = subtotal.toFixed(2); // Update the subtotal display
+  document.getElementById('total').textContent = total.toFixed(2); // Update the total display
 }
 
 // Single DOMContentLoaded event listener
@@ -138,10 +143,23 @@ document.addEventListener('DOMContentLoaded', () => {
   if (deliveryForm) {
     deliveryForm.addEventListener('submit', handleDeliveryFormSubmission);
   }
-  if (document.getElementById('deliveryForm')) {
-    fetch('../menu-items.json')
-      .then(response => response.json())
-      .then(setupDeliveryForm)
-      .catch(error => console.error('Error loading menu items:', error));
+
+  // Fetch and setup delivery form
+  fetch('../menu-items.json')  // Adjust the path as needed
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => setupDeliveryForm(data))
+    .catch(error => console.error('Error loading menu items:', error));
+
+    const addItemButton = document.getElementById('addItem');
+  const tipInput = document.getElementById('tip');
+  
+  if (addItemButton && tipInput) {
+    addItemButton.addEventListener('click', addItemToOrder);
+    tipInput.addEventListener('change', updateOrderSummary); // Properly set event listener for tip changes
   }
 });

@@ -41,26 +41,31 @@ header a img {
     text-decoration: none;
     margin-left: 40px;
     font-family: 'Karantina';
-    top: 21%;
+    top: 17%;
 }
 
 .hamburger {
     display: none;
-    position: fixed;
-    font-size: 30px;
-    background: none;
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    z-index: 100;
+    background: transparent;
     border: none;
     color: black;
     cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
 }
 
-@media (max-width: 600px) {  
+.hamburger:hover {
+    background-color: #CA0005;
+}
+
+@media (max-width: 768px) {  
     .hamburger {
         display: block;
-        position: absolute;
-        right: 20px;
-        top: 28px;
-        z-index: 15;
     }
 
     .navbar {
@@ -217,17 +222,22 @@ body {
 }
 
 /* Bookings Page CSS. */
+* {
+    box-sizing: border-box;
+}
+
 .bookings-delivery-container {
     display: flex;
     justify-content: space-around;
     text-align: center;
-    margin: 20px 0;
     flex-wrap: wrap;
+    padding: 10px;
+    gap: 20px; /* Adjust space between items */
 }
 
 .booking-table input,
 .booking-table textarea {
-    max-height: 50px; /* Example height, adjust as needed */
+    max-height: 300px; /* Example height, adjust as needed */
 }
 
 .booking-table form {
@@ -237,13 +247,14 @@ body {
 
 .booking-table form,
 .order-delivery form {
-    max-width: 350px;
-    margin: auto;
+    width: 100%; /* Full width to start */
+    max-width: 500px; /* Maximum size of the forms */
+    min-width: 250px; /* Minimum size of the forms */
+    margin: auto; /* Center in the flex container */
     padding: 20px;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    width: 100%;
+    box-shadow: 0 4px 6px black;
 }
 
 input[type="number"],
@@ -251,85 +262,166 @@ input[type="text"],
 input[type="email"],
 input[type="tel"],
 input[type="datetime-local"],
-textarea {
+textarea
+select { /* Added select here to match the other input styles */
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid white;
+    padding: 2px;
+    margin-bottom: 20px;
+    border: 1px solid white; /* Ensure visibility against your form's background */
     border-radius: 4px;
+    box-sizing: border-box;
+    background-color: white;
+    color: black; /* Text color */
 }
 
-button[type="submit"] {
-    padding: 10px 20px;
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.select-wrapper:after {
+    content: '';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    background-size: cover;
+    pointer-events: none;
+}
+
+select {
+    /* Previous styles */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: none; /* Remove if previously set */
+}
+
+#tip {
+    width: 41%;
+}
+
+/* Style for submit buttons */
+button[type="submit"],
+button[type="button"] {
     background-color: #CA0005;
     color: black;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-button[type="submit"]:hover {
+/* Hover effect for submit buttons */
+button[type="submit"]:hover,
+button[type="button"]:hover {
     background-color: black;
-    color:#CA0005;
+    color: #CA0005;
 }
 
 .delivery-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
+    margin-bottom: 10px;
+}
   
-  .delivery-info {
+.delivery-info {
     display: flex;
     flex-direction: column;
-  }
-  
-  .delivery-selection {
+    padding: 10px;
+}
+.delivery-selection {
     display: flex;
     flex-direction: column;
-  }
+    padding: 10px;
+}
   
-  .order-total {
+.order-total {
     grid-column: span 2;
-  }
+    text-align: right;
+}
   
-  input, select, button {
-    margin: 5px 0;
-  }
+/* Targeting form elements more specifically */
+.form-input,
+.form-select,
+.form-button {
+    width: 100%; /* Full width for fluid resizing */
+    padding: 10px;
+    margin-top: 20px;;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
   
-  #orderSummary {
+#orderSummary {
     list-style: none;
-    padding: 0;
-  }
+    text-align: left;
+    padding-top: 5px;
+}
+
+#deliveryForm {
+    margin-bottom: 60px; /* Adjust this value to create space between the form and footer */
+}
 
 .separator {
     background-color: white;
     width: 3px;
-    margin: 0 20px;
+    margin: 10px 20px;
 }
 
-@media (max-width: 768px) {
+/* Assuming .additional-info-container is a flex container */
+.additional-info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Textarea and button within the .additional-info-container */
+.additional-info-container textarea,
+.additional-info-container button {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.additional-info-container button {
+    margin-left: 10px;
+}
+
+#requests {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#bookButton {
+    padding-top: 28px;
+    padding-bottom: 28px;
+}
+  
+/* Adjustments for smaller screens */
+@media (max-width: 1086px) {
     .bookings-delivery-container {
-        justify-content: center;
         flex-direction: column;
     }
 
     .separator {
-        display: block;
         height: 3px;
-        width: 90%;
-        background-color: white;
+        width: 80%;
         margin: 20px auto;
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .booking-table form,
     .order-delivery form {
-    width: 90%;
-}
+        width: 100%; /* Allows the forms to shrink with the window */
+        max-width: 500px; /* Maximum width of forms */
+    }
 }
 
 /* Menu CSS */
