@@ -160,6 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if (addItemButton && tipInput) {
     addItemButton.addEventListener('click', addItemToOrder);
-    tipInput.addEventListener('change', updateOrderSummary); // Properly set event listener for tip changes
+    tipInput.addEventListener('change', updateOrderSummary);
   }
 });
