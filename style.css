@@ -231,25 +231,25 @@ body {
     text-align: center;
     flex-wrap: wrap;
     padding: 10px;
-    gap: 20px; /* Adjust space between items */
+    gap: 20px;
 }
 
 .booking-table input,
 .booking-table textarea {
-    max-height: 300px; /* Example height, adjust as needed */
+    max-height: 300px;
 }
 
 .booking-table form {
-    max-height: 600px; /* Example max-height, adjust as needed */
-    overflow: auto; /* Allows scrolling inside the form if the content is too long */
+    max-height: 600px;
+    overflow: auto;
 }
 
 .booking-table form,
 .order-delivery form {
-    width: 100%; /* Full width to start */
-    max-width: 500px; /* Maximum size of the forms */
-    min-width: 250px; /* Minimum size of the forms */
-    margin: auto; /* Center in the flex container */
+    width: 100%;
+    max-width: 500px;
+    min-width: 250px;
+    margin: auto;
     padding: 20px;
     background-color: white;
     border-radius: 10px;
@@ -262,15 +262,15 @@ input[type="email"],
 input[type="tel"],
 input[type="datetime-local"],
 textarea
-select { /* Added select here to match the other input styles */
+select {
     width: 100%;
     padding: 2px;
     margin-bottom: 20px;
-    border: 1px solid white; /* Ensure visibility against your form's background */
+    border: 1px solid white;
     border-radius: 4px;
     box-sizing: border-box;
     background-color: white;
-    color: black; /* Text color */
+    color: black;
 }
 
 .select-wrapper {
@@ -305,7 +305,6 @@ select {
     width: 41%;
 }
 
-/* Style for submit buttons */
 button[type="submit"],
 button[type="button"] {
     background-color: #CA0005;
@@ -315,7 +314,6 @@ button[type="button"] {
     cursor: pointer;
 }
 
-/* Hover effect for submit buttons */
 button[type="submit"]:hover,
 button[type="button"]:hover {
     background-color: black;
@@ -327,35 +325,24 @@ button[type="button"]:hover {
     grid-template-columns: 1fr 1fr;
     margin-bottom: 10px;
 }
-  
+
 .delivery-info {
     display: flex;
     flex-direction: column;
     padding: 10px;
 }
+
 .delivery-selection {
     display: flex;
     flex-direction: column;
     padding: 10px;
 }
-  
+
 .order-total {
     grid-column: span 2;
     text-align: right;
 }
-  
-/* Targeting form elements more specifically */
-.form-input,
-.form-select,
-.form-button {
-    width: 100%; /* Full width for fluid resizing */
-    padding: 10px;
-    margin-top: 20px;;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-  
+
 #orderSummary {
     list-style: none;
     text-align: left;
@@ -363,7 +350,7 @@ button[type="button"]:hover {
 }
 
 #deliveryForm {
-    margin-bottom: 60px; /* Adjust this value to create space between the form and footer */
+    margin-bottom: 60px;
 }
 
 .separator {
@@ -372,22 +359,16 @@ button[type="button"]:hover {
     margin: 10px 20px;
 }
 
-/* Assuming .additional-info-container is a flex container */
-.additional-info-container {
+.additional-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Textarea and button within the .additional-info-container */
-.additional-info-container textarea,
-.additional-info-container button {
+.additional-container textarea,
+.additional-container button {
     flex: 1;
     margin-right: 10px;
-}
-
-.additional-info-container button {
-    margin-left: 10px;
 }
 
 #requests {

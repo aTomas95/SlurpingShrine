@@ -32,7 +32,7 @@
                 <input type="tel" id="bookingPhone" name="phone" placeholder="Phone Number" required 
                 pattern="(\+[\d\s\-().]{7,}|0\d{10})" title="Please enter a valid phone number (international or local UK)">
                 <input type="datetime-local" id="bookingDateTime" name="bookingDateTime" required>
-                <div class="additional-info-container">
+                <div class="additional-container">
                     <textarea id="requests" name="requests" placeholder="Additional Information"></textarea>
                     <button type="submit" id="bookButton">Book Table</button>
                 </div>
@@ -47,13 +47,13 @@
                 <div class="delivery-selection">
                     <div class="select-wrapper">
                         <select id="ramenDropdown">
-                        <!-- Options will be added dynamically -->
+                            <!-- List of available items appears here. -->
                         </select>
                     </div>
                     <input type="number" id="quantity" placeholder="Quantity" min="1">
                     <button type="button" id="addItem">Add to Order</button>
                     <ul id="orderSummary">
-                      <!-- Summary of selected items -->
+                        <!-- Provides a list of selected items. -->
                     </ul>
                 </div>
                 <div class="delivery-info">
