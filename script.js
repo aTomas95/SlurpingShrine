@@ -1,13 +1,10 @@
+// Slideshow function
 function initializeSlideshow() {
   let slideIndex = 1;
   showSlides(slideIndex);
 
   function plusSlides(n) {
     showSlides(slideIndex += n);
-  }
-
-  function currentSlide(n) {
-    showSlides(slideIndex = n);
   }
 
   function showSlides(n) {
@@ -21,7 +18,6 @@ function initializeSlideshow() {
     slides[slideIndex - 1].style.display = "block";
   }
 
-  // Attach events to next/prev buttons if they exist
   const nextButton = document.querySelector('.next');
   const prevButton = document.querySelector('.prev');
   if (nextButton && prevButton) {
@@ -32,7 +28,6 @@ function initializeSlideshow() {
 
 // Function to initialize the menu items from JSON
 function initializeMenu() {
-  // Assuming menu-items.json is in the correct directory
   fetch('../menu-items.json')
     .then(response => response.json())
     .then(menuItems => {
@@ -64,7 +59,7 @@ function handleDeliveryFormSubmission(event) {
 
 // Function to setup the delivery form and load menu items into the dropdown
 function setupDeliveryForm(menuItems) {
-  const ramenDropdown = document.getElementById('ramenDropdown'); // Adjust this ID based on your HTML
+  const ramenDropdown = document.getElementById('ramenDropdown');
   ramenDropdown.innerHTML = '<option value="">Select a Ramen</option>';
 
   menuItems.forEach(item => {
@@ -74,11 +69,10 @@ function setupDeliveryForm(menuItems) {
       ramenDropdown.appendChild(option);
   });
 
-  // Event listener for the Add to Order button
   document.getElementById('addItem').addEventListener('click', addItemToOrder);
 }
 
-// This function handles adding selected ramen and its quantity to the order summary
+// Adds selected ramen and its quantity to the order summary
 function addItemToOrder() {
   const ramenDropdown = document.getElementById('ramenDropdown');
   const quantityInput = document.getElementById('quantity');
@@ -94,10 +88,9 @@ function addItemToOrder() {
   }
 }
 
-// Function to update the order summary based on selected items and quantity
+// Order summary based on selected items and quantity
 function updateOrderSummary() {
   let subtotal = 0;
-  // Assuming each list item in the orderSummary follows the format: "Item Name - £Price x Quantity"
   document.querySelectorAll('#orderSummary li').forEach(item => {
       const parts = item.textContent.split(' x ');
       const price = parseFloat(parts[0].split(' - £')[1]);
@@ -105,16 +98,18 @@ function updateOrderSummary() {
       subtotal += price * quantity;
   });
 
-  const tipInput = document.getElementById('tip'); // Get the tip input element
-  const tipPercentage = parseFloat(tipInput.value) / 100 || 0; // Parse the tip percentage
-  const tipAmount = subtotal * tipPercentage; // Calculate the tip amount
-  const total = subtotal + tipAmount; // Calculate the total
+  // Calculations for tip and total
+  const tipInput = document.getElementById('tip');
+  const tipPercentage = parseFloat(tipInput.value) / 100 || 0;
+  const tipAmount = subtotal * tipPercentage;
+  const total = subtotal + tipAmount;
 
-  document.getElementById('subtotal').textContent = subtotal.toFixed(2); // Update the subtotal display
-  document.getElementById('total').textContent = total.toFixed(2); // Update the total display
+  // Updates the subtotal and total
+  document.getElementById('subtotal').textContent = subtotal.toFixed(2);
+  document.getElementById('total').textContent = total.toFixed(2);
 }
 
-// Single DOMContentLoaded event listener
+// DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.querySelector('.navbar');
   const hamburger = document.querySelector('.hamburger');
@@ -145,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Fetch and setup delivery form
-  fetch('../menu-items.json')  // Adjust the path as needed
+  fetch('../menu-items.json')
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -156,10 +151,10 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(error => console.error('Error loading menu items:', error));
 
     const addItemButton = document.getElementById('addItem');
-  const tipInput = document.getElementById('tip');
+    const tipInput = document.getElementById('tip');
   
-  if (addItemButton && tipInput) {
-    addItemButton.addEventListener('click', addItemToOrder);
-    tipInput.addEventListener('change', updateOrderSummary);
-  }
+    if (addItemButton && tipInput) {
+      addItemButton.addEventListener('click', addItemToOrder);
+      tipInput.addEventListener('change', updateOrderSummary);
+    }
 });

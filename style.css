@@ -44,6 +44,7 @@ header a img {
     top: 17%;
 }
 
+/* Hamburger details. */
 .hamburger {
     display: none;
     position: absolute;
@@ -63,6 +64,7 @@ header a img {
     background-color: #CA0005;
 }
 
+/* Nav bar for smaller screens. */
 @media (max-width: 768px) {  
     .hamburger {
         display: block;
@@ -156,7 +158,7 @@ body {
     object-position: center;
 }
 
-/* Slideshow buttons */
+/* Slideshow arrow settings. */
 .prev, .next {
     cursor: pointer;
     width: auto;
@@ -169,7 +171,6 @@ body {
     position:relative;
 }
 
-/* Fading animation */
 .fade {
     animation-name: fade;
     animation-duration: 1.5s;
@@ -256,6 +257,32 @@ body {
     box-shadow: 0 4px 6px black;
 }
 
+/* Requests and Book button allignment. */
+.additional-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.additional-container textarea,
+.additional-container button {
+    flex: 1;
+    margin-right: 10px;
+}
+
+#requests {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#bookButton {
+    padding-top: 28px;
+    padding-bottom: 28px;
+}
+
+/* Input settings. */
 input[type="number"],
 input[type="text"],
 input[type="email"],
@@ -273,6 +300,7 @@ select {
     color: black;
 }
 
+/* Dropdown settings. */
 .select-wrapper {
     position: relative;
     display: inline-block;
@@ -294,11 +322,10 @@ select {
 }
 
 select {
-    /* Previous styles */
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background-image: none; /* Remove if previously set */
+    background-image: none;
 }
 
 #tip {
@@ -359,31 +386,6 @@ button[type="button"]:hover {
     margin: 10px 20px;
 }
 
-.additional-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.additional-container textarea,
-.additional-container button {
-    flex: 1;
-    margin-right: 10px;
-}
-
-#requests {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-}
-
-#bookButton {
-    padding-top: 28px;
-    padding-bottom: 28px;
-}
-  
-/* Adjustments for smaller screens */
 @media (max-width: 1086px) {
     .bookings-delivery-container {
         flex-direction: column;
@@ -399,8 +401,8 @@ button[type="button"]:hover {
 @media (min-width: 768px) {
     .booking-table form,
     .order-delivery form {
-        width: 100%; /* Allows the forms to shrink with the window */
-        max-width: 500px; /* Maximum width of forms */
+        width: 100%;
+        max-width: 500px;
     }
 }
 
