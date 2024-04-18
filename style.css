@@ -194,7 +194,6 @@ body {
     background-color: white;
     padding: 10px;
     text-align: center;
-    bottom: 0;
 }
 
 .footer-content {
@@ -533,7 +532,7 @@ button[type="button"]:hover {
 
 .location {
     position: relative;
-    height: 200px;
+    height: 180px;
 }
 
 .location iframe {
