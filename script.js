@@ -1,3 +1,53 @@
+// DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', () => {
+  const navbar = document.querySelector('.navbar');
+  const hamburger = document.querySelector('.hamburger');
+  if (navbar && hamburger) {
+    hamburger.addEventListener('click', () => {
+      navbar.classList.toggle('show');
+    });
+  }
+
+  const slideshowContainer = document.querySelector('.mySlides');
+  if (slideshowContainer) {
+    initializeSlideshow();
+  }
+
+  const menuContainer = document.querySelector('.menu-items');
+  if (menuContainer) {
+    initializeMenu();
+  }
+
+  const bookingForm = document.getElementById('bookingForm');
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', handleBookingFormSubmission);
+  }
+
+  const deliveryForm = document.getElementById('deliveryForm');
+  if (deliveryForm) {
+    deliveryForm.addEventListener('submit', handleDeliveryFormSubmission);
+  }
+
+  // Fetch and setup delivery form
+  fetch('../menu-items.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => setupDeliveryForm(data))
+    .catch(error => console.error('Error loading menu items:', error));
+
+    const addItemButton = document.getElementById('addItem');
+    const tipInput = document.getElementById('tip');
+  
+    if (addItemButton && tipInput) {
+      addItemButton.addEventListener('click', addItemToOrder);
+      tipInput.addEventListener('change', updateOrderSummary);
+    }
+});
+
 // Slideshow function
 function initializeSlideshow() {
   let slideIndex = 1;
@@ -108,53 +158,3 @@ function updateOrderSummary() {
   document.getElementById('subtotal').textContent = subtotal.toFixed(2);
   document.getElementById('total').textContent = total.toFixed(2);
 }
-
-// DOMContentLoaded event listener
-document.addEventListener('DOMContentLoaded', () => {
-  const navbar = document.querySelector('.navbar');
-  const hamburger = document.querySelector('.hamburger');
-  if (navbar && hamburger) {
-    hamburger.addEventListener('click', () => {
-      navbar.classList.toggle('show');
-    });
-  }
-
-  const slideshowContainer = document.querySelector('.mySlides');
-  if (slideshowContainer) {
-    initializeSlideshow();
-  }
-
-  const menuContainer = document.querySelector('.menu-items');
-  if (menuContainer) {
-    initializeMenu();
-  }
-
-  const bookingForm = document.getElementById('bookingForm');
-  if (bookingForm) {
-    bookingForm.addEventListener('submit', handleBookingFormSubmission);
-  }
-
-  const deliveryForm = document.getElementById('deliveryForm');
-  if (deliveryForm) {
-    deliveryForm.addEventListener('submit', handleDeliveryFormSubmission);
-  }
-
-  // Fetch and setup delivery form
-  fetch('../menu-items.json')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => setupDeliveryForm(data))
-    .catch(error => console.error('Error loading menu items:', error));
-
-    const addItemButton = document.getElementById('addItem');
-    const tipInput = document.getElementById('tip');
-  
-    if (addItemButton && tipInput) {
-      addItemButton.addEventListener('click', addItemToOrder);
-      tipInput.addEventListener('change', updateOrderSummary);
-    }
-});
